@@ -9,7 +9,8 @@
  */
 public class HelloApp {
     public static void main(String[] args) {
-
-        System.out.println("Hello World");
+        // Access the first command-line argument as the name
+        String name = args[0];
+        System.out.println("Hello, " + name + "!");
     }
 }
