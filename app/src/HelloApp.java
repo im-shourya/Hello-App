@@ -1,16 +1,22 @@
 /**
- * HelloApp UC1 - Hello World Display Application
+ * HelloApp UC3 - Display "Hello" with Command-Line Argument or Default Message
  *
- * This class demonstrates a simple Java application that displays "Hello World"
- * to the console.
+ * Description: The app accepts a user's name as a command-line argument and
+ *              displays a personalized greeting. If no name is provided,
+ *              it defaults to "World".
  *
  * @author Shourya Parashar
- * @version 1.0
+ * @version 3.0
  */
 public class HelloApp {
+
+    /**
+     * Entry point of the application.
+     * @param args Command-line arguments; args[0] optionally holds the user's name
+     */
     public static void main(String[] args) {
-        // Access the first command-line argument as the name
-        String name = args[0];
+        // Ternary operator: use args[0] if provided, otherwise default to "World"
+        String name = (args.length > 0) ? args[0] : "World";
         System.out.println("Hello, " + name + "!");
     }
 }
