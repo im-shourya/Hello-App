@@ -1,22 +1,35 @@
 /**
- * HelloApp UC3 - Display "Hello" with Command-Line Argument or Default Message
+ * HelloApp UC4 - Display "Hello" with Multiple Command-Line Arguments or Default Message
  *
- * Description: The app accepts a user's name as a command-line argument and
- *              displays a personalized greeting. If no name is provided,
- *              it defaults to "World".
+ * Description: The app accepts multiple names as command-line arguments and
+ *              displays a personalized greeting for all names. If no names
+ *              are provided, it defaults to "World".
  *
  * @author Shourya Parashar
- * @version 3.0
+ * @version 4.0
  */
 public class HelloApp {
 
     /**
      * Entry point of the application.
-     * @param args Command-line arguments; args[0] optionally holds the user's name
+     * @param args Command-line arguments; each arg optionally holds a user's name
      */
     public static void main(String[] args) {
-        // Ternary operator: use args[0] if provided, otherwise default to "World"
-        String name = (args.length > 0) ? args[0] : "World";
-        System.out.println("Hello, " + name + "!");
+        String names;
+
+        if (args.length == 0) {
+            names = "World";
+        } else {
+            StringBuilder nameBuilder = new StringBuilder();
+            for (int i = 0; i < args.length; i++) {
+                nameBuilder.append(args[i]);
+                if (i < args.length - 1) {
+                    nameBuilder.append(", ");
+                }
+            }
+            names = nameBuilder.toString();
+        }
+
+        System.out.println("Hello, " + names + "!");
     }
 }
