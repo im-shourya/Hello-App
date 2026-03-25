@@ -1,14 +1,15 @@
 /**
- * HelloApp UC5 - Display "Hello" with Multiple Command-Line Arguments
- *                using Enhanced For Loop or Default Message
+ * HelloApp UC6 - Display "Hello" with Multiple Command-Line Arguments
+ *                using substring to Remove Trailing Delimiter
  *
  * Description: The app accepts zero or more command-line arguments and prints
- *              a greeting. It uses an enhanced for loop (for-each loop) to
- *              process multiple names. If no arguments are provided, it displays
- *              the default greeting: "Hello, World!".
+ *              a greeting. It uses an enhanced for loop to process multiple names
+ *              and the substring method to remove the trailing delimiter.
+ *              If no arguments are provided, it displays the default greeting:
+ *              "Hello, World!".
  *
  * @author Shourya Parashar
- * @version 5.0
+ * @version 6.0
  */
 public class HelloApp {
 
@@ -23,15 +24,11 @@ public class HelloApp {
             names = "World";
         } else {
             StringBuilder nameBuilder = new StringBuilder();
-            boolean first = true;
             for (String name : args) {
-                if (!first) {
-                    nameBuilder.append(", ");
-                }
-                nameBuilder.append(name);
-                first = false;
+                nameBuilder.append(name).append(", ");
             }
-            names = nameBuilder.toString();
+            // Remove the trailing ", " using substring
+            names = nameBuilder.substring(0, nameBuilder.length() - 2);
         }
 
         System.out.println("Hello, " + names + "!");
