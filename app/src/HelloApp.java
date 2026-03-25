@@ -1,12 +1,14 @@
 /**
- * HelloApp UC4 - Display "Hello" with Multiple Command-Line Arguments or Default Message
+ * HelloApp UC5 - Display "Hello" with Multiple Command-Line Arguments
+ *                using Enhanced For Loop or Default Message
  *
- * Description: The app accepts multiple names as command-line arguments and
- *              displays a personalized greeting for all names. If no names
- *              are provided, it defaults to "World".
+ * Description: The app accepts zero or more command-line arguments and prints
+ *              a greeting. It uses an enhanced for loop (for-each loop) to
+ *              process multiple names. If no arguments are provided, it displays
+ *              the default greeting: "Hello, World!".
  *
  * @author Shourya Parashar
- * @version 4.0
+ * @version 5.0
  */
 public class HelloApp {
 
@@ -21,11 +23,13 @@ public class HelloApp {
             names = "World";
         } else {
             StringBuilder nameBuilder = new StringBuilder();
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-                if (i < args.length - 1) {
+            boolean first = true;
+            for (String name : args) {
+                if (!first) {
                     nameBuilder.append(", ");
                 }
+                nameBuilder.append(name);
+                first = false;
             }
             names = nameBuilder.toString();
         }
